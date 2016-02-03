@@ -7,14 +7,23 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <img src="images/dog.png" alt="Outline of a dog">
-  <header>Dog Food</header>
-  <div id="displaydogfood"></div>
 
-  <img src="images/cat.png" alt="Outline of a cat">
-  <header>Cat Food</header>
-  <div id="displaycatfood"></div>
+  <div class="links">
+    <img class="active" id="link-dog" src="images/dog.png" alt="Outline of a dog">
+    <img id="link-cat" src="images/cat.png" alt="Outline of a cat">
+  </div>
+
+  <div id="dog">
+    <header>Dog Food</header>
+    <div id="displaydogfood"></div>
+  </div>
+
+  <div id="cat" class="hidden">
+    <header>Cat Food</header>
+    <div id="displaycatfood"></div>
+  </div>
 
 	<script src="food.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
