@@ -8,7 +8,15 @@ myDogFoodRequest.send();
 
 var dogfoodEl = document.getElementById("displaydogfood");
 
+var myCatFoodRequest = new XMLHttpRequest();
 
+myCatFoodRequest.addEventListener("load", DisplayCatFood);
+myCatFoodRequest.open("GET", "cat-food.json");
+myCatFoodRequest.send();
+
+// get reference to displaycatfood in DOM
+
+var catfoodEl = document.getElementById("displaycatfood");
 
  function DisplayDogFood() {
  	// console.log(this.responseText);
@@ -50,4 +58,49 @@ var dogfoodEl = document.getElementById("displaydogfood");
 
 
  }
+
+ function DisplayCatFood() {
+ 	// console.log(this.responseText);
+ 	var catData = JSON.parse(this.responseText);
+ 	console.log(catData);
+ 	var catBrand = catData.cat_brands;
+ 	for (var i = 0; i < catBrand.length; i++) {
+ 		// console.log(catBrand[i]);
+ 		var currentBrandName = catBrand[i].name;
+ 		var types = catBrand[i].types;
+ 		var breeds = catBrand[i].breeds;
+
+ 		// console.log(currentBrandType);
+
+ 		for (var j = 0; j < types.length; j++) {
+
+ 			var currentType = types[j].type;
+ 			// console.log(currentType);
+ 			var volumes = types[j].volumes;
+
+ 			for (var k = 0; k < volumes.length; k++) {
+ 				var currentVolume = volumes[k].name;
+ 				// console.log(currentVolume);
+ 				var currentPrice = volumes[k].price;
+ 				var catFoodHTML = `<div class="card"><h1>${currentBrandName}</h1>`;
+ 				catFoodHTML += `<h5>Suitable for ${breeds} cats</h5>`;
+ 				catFoodHTML += `<h5>Type: ${currentType}</h5>`;
+ 				catFoodHTML += `<h4>Size: ${currentVolume}</h4>`;
+ 				catFoodHTML += `<h4>Price: $${currentPrice}</h4></div>`;
+ 				catfoodEl.innerHTML += catFoodHTML;
+
+
+ 			};
+
+ 		}
+
+
+ 	};
+
+
+
+
+
+ }
+
 
