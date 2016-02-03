@@ -29,7 +29,15 @@ var dogfoodEl = document.getElementById("displaydogfood");
 
  			for (var k = 0; k < volumes.length; k++) {
  				var currentVolume = volumes[k].name;
- 				console.log(currentVolume);
+ 				// console.log(currentVolume);
+ 				var currentPrice = volumes[k].price;
+ 				var dogFoodHTML = `<div class="card"><h1>${currentBrandName}</h1>`;
+ 				dogFoodHTML += `<h5>Type: ${currentType}</h5>`;
+ 				dogFoodHTML += `<h4>Size: ${currentVolume}</h4>`;
+ 				dogFoodHTML += `<h4>Price: $${currentPrice}</h4></div>`;
+ 				dogfoodEl.innerHTML += dogFoodHTML
+
+
  			};
 
  		}
